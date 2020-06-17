@@ -1,5 +1,9 @@
 Folium map with incoming letters to Philadelphia 1748-1752
 
+Historic Postal Data - Incoming.csv is the data source from the American Philosophical Society
+postal_incoming_map.py is the active python file I'm working on
+Historic_Philadelphia_Incoming_Post.html is produced through folium in the .py file
+
 Intention:
   Build Interactive map with time slider to see both Philadelphia incoming and outgoing letters and corresponding cities
   
