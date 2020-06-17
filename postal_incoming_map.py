@@ -9,6 +9,7 @@ data = pandas.read_csv("Historic Postal Data - Incoming.csv", engine='python')
 date = list(data["Date"])
 loc = list(data["Location"])
 
+
 ### Testing to make sure CSV can be read by python/is iterable and find date
 if any("5/25/1748" in s for s in date):
     print("true")
@@ -27,9 +28,24 @@ print("Total letters recieve in 1748: " + str(date_1748))
 
 ### Error below code
 
-
-### newyork_1748 = [s for s in newyork_total if date_1748 in s]
+### newyork_1748 = [s for s in date_1748 if "New York" in s]
 ### print(newyork_1748)
+
+###  OR
+
+### for da, lo in zip(date, loc):
+###     if lo == "New York":
+###         while da == "5/25/1748":
+###             print((lo.count("New York") - da.count("5/25/1748")))
+
+### OR
+
+### def newyork_1748():
+###     if loc == "New York":
+###         while date == "5/25/1748":
+###             return ;
+
+
 ###
 ### Alan-Beyersdorfs-Mac-mini:APS_HTML abeyers$ python3 postal_incoming_map.py
 ### true
@@ -41,6 +57,8 @@ print("Total letters recieve in 1748: " + str(date_1748))
 ### TypeError: 'int' object is not iterable
 
 ### ***Resumes working code below*** ###
+
+
 
 ### Converts city name ot GPS coordinates
 locator = Nominatim(user_agent="myGeocoder")
