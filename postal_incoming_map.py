@@ -31,13 +31,12 @@ if any("5/25/1748" in s for s in date):
     print("true")
 
 ### Testing to make sure python can find number of New York and specific date iterations###
+'''
 newyork_total = loc.count("New York")
 print("Total letters from New York: " + str(newyork_total))
 date_1748 = date.count("5/25/1748")
 print("Total letters recieve in 1748: " + str(date_1748))
-
-
-
+'''
 ### Converts city name ot GPS coordinates
 locator = Nominatim(user_agent="myGeocoder")
 newyork_location = locator.geocode("New York")
@@ -49,16 +48,19 @@ postal_map = folium.Map(
 )
 
 ### Tests and prints counts from various variables
+'''
 print("Total Letters into Philadelphia Post Office: " + str(len(loc)))
 print("Letters from New York: " + str(loc.count('New York')))
 print(loc.count('Boston'))
 print("Latitude = {}, Longitude = {}".format(newyork_location.latitude, newyork_location.longitude))
+'''
 
 ### Creates folium feature group for New York letters. Will later include all cities
 fgall = folium.FeatureGroup(name="newyork_letters")
 
-fgall.add_child(folium.CircleMarker(location =[newyork_location.latitude, newyork_location.longitude],
-                                  color = 'black'))
+fgall.add_child(folium.CircleMarker(location =[newyork_location.latitude,
+                                                newyork_location.longitude],
+                                    color = 'black'))
 
 ### Adds current feature groups to map and creates HTML map file
 
