@@ -44,16 +44,23 @@ def return_coordinates(loc):
 print(return_coordinates("Boston"))
 
 ### Creates folium feature group for New York letters. Will later include all cities
+'''
 fgall = folium.FeatureGroup(name="newyork_letters")
 
-'''
+
 fgall.add_child(folium.CircleMarker(location =[newyork_location.latitude,
                                                 newyork_location.longitude],
                                     color = 'black',
                                     popup = "Letters: " + str(return_letters('1748-05-25','New York'))))
 '''
 
+fgall = folium.FeatureGroup(name="all letters")
+
 for da, lo in zip(date, loc):
+    if da == "5/25/1748":
+        fgall.add_child(folium.CircleMarker(location=return_coordinates(lo),
+                                        color = 'black'))
+
 
 
 ### Adds current feature groups to map and creates HTML map file
