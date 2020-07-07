@@ -61,11 +61,11 @@ fg_5_25_1748 = folium.FeatureGroup(name= "Letters in 5/25/1748")
 
 for da, lo in zip(date, loc):
     if da == "5/25/1748":
-        '''
+
         fgall.add_child(folium.CircleMarker(location=return_coordinates(lo),
                                         popup = "Letters: " + str(return_letters(da, lo)),
                                         color = 'black'))
-        '''
+
         fg_5_25_1748.add_child(folium.CircleMarker(location=return_coordinates(lo),
                                         popup = "Letters: " + str(return_letters(da, lo)),
                                         color = 'black'))
@@ -75,8 +75,7 @@ for da, lo in zip(date, loc):
 ### Adds current feature groups to map and creates HTML map file
 
 postal_map.add_child(fgall)
-postal_map.add_child(fg_5_25_1748)
 
-postal_map.add_child(folium.LayerControl())
+postal_map.add_child(folium.LayerControl)
 
 postal_map.save("Historic_Philadelphia_Incoming_Post.html")
